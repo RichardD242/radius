@@ -29,7 +29,7 @@ export default function Home() {
             <a className="transition-opacity hover:opacity-70" href="#access">
               Access
             </a>
-            <a className="transition-opacity hover:opacity-70" href="#code">
+            <a href= "https://github.com/richardD242/radius" target = "_blank" rel= "noopener noreferrer"className="transition-opacity hover:opacity-70">
               Code
             </a>
           </nav>
@@ -55,7 +55,9 @@ export default function Home() {
               </a>
               <a
                 id="code"
-                href="#code"
+                href="https://github.com/richardD242/radius"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center rounded-full border border-black bg-white px-7 text-sm font-medium text-black transition-transform duration-200 hover:-translate-y-0.5 hover:bg-zinc-100"
               >
                 Code
