@@ -26,7 +26,7 @@ export default function Home() {
           </span>
 
           <nav className="ml-auto hidden items-center gap-8 text-sm text-black md:flex">
-            <a className="transition-opacity hover:opacity-70" href="#access">
+            <a className="transition-opacity hover:opacity-70" href="/access">
               Access
             </a>
             <a href= "https://github.com/richardD242/radius" target = "_blank" rel= "noopener noreferrer"className="transition-opacity hover:opacity-70">
@@ -47,8 +47,7 @@ export default function Home() {
             />
             <div className="mt-12 flex flex-col gap-4 sm:flex-row">
               <a
-                id="access"
-                href="#access"
+                href="/access"
                 className="inline-flex h-12 items-center justify-center rounded-full bg-black px-7 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-zinc-800"
               >
                 Access
