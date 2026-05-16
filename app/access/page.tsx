@@ -47,12 +47,12 @@ export default function AccessPage() {
             </p>
             
             <div className="flex flex-col gap-4 sm:flex-row">
-                <a href = {`https://auth.hackclub.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_HACKCLUB_CLIENT_ID}&redirect_uri=${encodeURIComponent("http://localhost:3000/api/auth/callback")}&response_type=code&scope=openid profile email`} className = "infine-flex h-12 items-center justify-center rounded-full bg-[#ec3750] px-7 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90">
+              <a href="/api/auth/login" className = "inline-flex h-12 items-center justify-center rounded-full bg-[#ec3750] px-7 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90">
                   Sign in with HackClub
                 </a>
                 
 
-                <Link href="/" className = "inline-flex h-12 items-center justify-center rounded-full bg-black px-7 text-sm font-medium text-white transition-transform duration-200 hover: -translate-y-0.5 hover:bg-zinc-800">
+              <Link href="/" className = "inline-flex h-12 items-center justify-center rounded-full bg-black px-7 text-sm font-medium text-white transition-transform duration-200 hover:-translate-y-0.5 hover:bg-zinc-800">
                     Back Home
                 </Link>
             </div>
