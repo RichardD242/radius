@@ -11,6 +11,9 @@ const libreBaskerville = Libre_Baskerville({
 export const metadata: Metadata = {
   title: "Radius",
   description: "Radius homepage",
+  icons: {
+    icon: "/logo/favicon-radius.png",
+  },
 };
 
 export default function RootLayout({

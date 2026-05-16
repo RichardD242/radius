@@ -46,11 +46,17 @@ export default function DashboardPage() {
             </a>
           </span>
 
-          <nav className="ml-auto hidden items-center gap-8 text-sm text-black md:flex">
-            <Link href="/tools" className="transition-opacity hover:opacity-70">
+          <nav className="ml-auto hidden items-center gap-4 text-sm text-black md:flex">
+            <Link
+              href="/tools"
+              className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            >
               Tools
             </Link>
-            <a href="/api/auth/logout" className="transition-opacity hover:opacity-70">
+            <a
+              href="/api/auth/logout"
+              className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            >
               Logout
             </a>
           </nav>
@@ -76,14 +82,42 @@ export default function DashboardPage() {
                     <span className="font-bold">Hello</span>
                     <span className="ml-3 text-6xl">{session.user.name ?? session.user.id}</span>
                   </h1>
-                  {session.user.email && (
-                    <p className="mt-4 text-lg text-zinc-600">{session.user.email}</p>
-                  )}
+
+                  <div className="mt-12 w-full max-w-2x1">
+                    <div className="mb-6 border-t border-black" />
+                  </div>
+
+                  <p className="mb-6 text-sm tracking-[0.25em] text-zinc-600">
+                    select a tool
+                  </p>
+
+                  <div className="flex flex-col items-start gap-3 text-left">
+                    {[
+                      ["1", "Files", "store, manage and share your files"],
+                      ["2", "Notes", "take notes"],
+                      ["3", "Pastes", "store and share code snippets"],
+                      ["4", "Bookmarks", "save and organize your favorite links"],
+                      ["5", "Todos", "create and manage your tasks"],
+                      ["6", "Secrets", "store sensitive information"],
+                    ].map(([number, name, description]) => (
+                      <Link
+                        key={name}
+                        href={`/tools/${name.toLowerCase()}`}
+                        className="group relative flex items-center gap-4 text-2xl tracking-tight transition-all duration-200 hover:translate-x-1"
+                      >
+                        <span className="-translate-x-3 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100 w-8 text-zinc-500">→</span>
+                        <span className="w-8 text-zinc-500">{number}</span>
+                        <span>{name}</span>
+                        <span className="text-sm text-zinc-500">{description}</span>
+                      </Link>
+                    ))}
+                  </div>
+
                 </>
               ) : (
                 <>
                   <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">Not signed in</h1>
-                  <Link href="/access" className="mt-4 inline-flex text-lg text-black underline underline-offset-4">
+                  <Link href="/access" className="mt-4 inline-flex text-lg text-black underline underline-offset-4 transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90">
                     Sign in with Hack Club
                   </Link>
                 </>
