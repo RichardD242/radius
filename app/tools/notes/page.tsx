@@ -3,8 +3,31 @@
 import Link from "next/link";
 import Image from "next/image";
 import logoImage from "../../../logo/favicon-radius.png";
+import { useEffect, useState } from "react";
 
 export default function NotesPage() {
+  const [note, setNote] = useState("");
+  const prompts = [
+    "whats on your mind?",
+    "what are you working on?",
+  ];
+
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+    setTitle(randomPrompt);
+  }, []);
+
+  useEffect(() => {
+    const saved = typeof window !== "undefined" ? localStorage.getItem("notes") : null;
+    if (saved) setNote(saved);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("notes", note);
+  }, [note]);
+
   return (
     <main className="min-h-screen bg-white text-black">
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 py-5 sm:px-10 lg:px-12">
@@ -36,6 +59,12 @@ export default function NotesPage() {
 
           <nav className="ml-auto hidden items-center gap-4 text-sm text-black md:flex">
             <Link
+              href="/tools/settings"
+              className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            >
+              Settings
+            </Link>
+            <Link
               href="/dashboard"
               className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
             >
@@ -50,9 +79,18 @@ export default function NotesPage() {
           </nav>
         </header>
 
-        <section className="flex flex-1 items-center justify-center py-16 sm:py-20">
-          <div className="flex w-full max-w-4xl flex-col items-center text-center">
-            <h1 className="text-6xl font-bold tracking-tight">Notes</h1>
+        <section className="flex flex-1 py-16 sm:py-20 items-start justify-center">
+          <div className="flex w-full max-w-6xl flex-col items-center">
+            <h1 className="text-6xl font-bold tracking-tight text-black text-center max-w-5xl mx-auto break-words">
+              {title || "Whats on your mind today?"}
+            </h1>
+
+            <textarea
+              className="mt-8 min-h-[60vh] w-full rounded-xl bg-zinc-200 p-6 text-black outline-none resize-y overflow-auto max-w-full"
+              placeholder="write here ...."
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
           </div>
         </section>
       </div>

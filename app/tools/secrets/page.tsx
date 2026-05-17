@@ -36,6 +36,12 @@ export default function SecretsPage() {
 
           <nav className="ml-auto hidden items-center gap-4 text-sm text-black md:flex">
             <Link
+              href="/tools/settings"
+              className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            >
+              Settings
+            </Link>
+            <Link
               href="/dashboard"
               className="inline-flex h-10 items-center justify-center rounded-full px-4 text-sm font-medium transition-transform duration-200 hover:-translate-y-0.5 hover:opacity-90"
             >
